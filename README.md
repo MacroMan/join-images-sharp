@@ -21,9 +21,17 @@ or
 `yarn add join-images-sharp`
 
 ## Usage
-```typescript
-import joinImages from "join-images-sharp";
+```javascript
+import { joinImages } from "join-images-sharp";
+// or
+const { joinImages } = require("join-images-sharp");
 
+// If using Typescript
+import { joinImages, JoinImageDirection, JoinImageOptions } from "join-images-sharp";
+// or
+const { joinImages, JoinImageDirection, JoinImageOptions } = require("join-images-sharp");
+```
+```typescript
 await joinImages([
     'test-images/landscape-1.png',
     'test-images/landscape-2.png',
@@ -34,11 +42,9 @@ Image formats can be JPEG, PNG, WebP, AVIF, GIF, SVG or TIFF and can be mixed an
 
 By default, the images will join along the longest edge (as determined by `isVertical = maxWidth > maxHeight`), where max* is from the biggest image
 
-You can join along the shortest edge by setting `options.direction` to `auto-reverse`, or use `vertical` or `horizontal` to set which direction to use manually:
+You can join along the shortest edge by setting `options.direction` to `auto-reverse`, or use `vertical` or `horizontal` to set the direction manually:
 
 ```typescript
-import joinImages, { JoinImageDirection } from "join-images-sharp";
-
 await joinImages([
     'test-images/landscape-1.png',
     'test-images/landscape-2.png',
@@ -47,11 +53,9 @@ await joinImages([
 // or JoinImageDirection.Horizontal or 'horizontal'
 ```
 
-You can set the background color to use for any blank areas:
+You can set the background color to use for any blank areas. Defaults to transparent for supporting formats (png, webp, etc), or white for other formats (jpeg, etc):
 
 ```typescript
-import joinImages from "join-images-sharp";
-
 await joinImages([
     'test-images/landscape-1.png',
     'test-images/landscape-2.png',

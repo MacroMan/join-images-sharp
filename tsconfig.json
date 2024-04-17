@@ -1,13 +1,15 @@
 {
   "include": ["index.ts"],
   "compilerOptions": {
+    "declaration": true,
     "strictNullChecks": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "experimentalDecorators": true,
     "target": "es2020",
-    "module": "commonjs",
-    "esModuleInterop": true
-  }
+    "module": "NodeNext",
+    "esModuleInterop": true,
+    "outDir": "dist"
+  },
 }

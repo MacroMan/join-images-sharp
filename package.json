@@ -2,19 +2,22 @@
   "name": "join-images-sharp",
   "version": "1.0.0",
   "description": "Join (composite) images together automatically",
-  "main": "dist/index.js",
+  "exports": {
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.cjs"
+  },
   "type": "module",
   "scripts": {
     "lint": "standard",
-    "build": "ncc build index.ts",
+    "build": "duel --dirs",
     "test": "vitest --watch"
   },
   "keywords": [],
   "author": "David Wakelin (https://davidwakelin.co.uk)",
   "license": "ISC",
   "devDependencies": {
+    "@knighted/duel": "^1.0.7",
     "@types/node": "^20.12.7",
-    "@vercel/ncc": "^0.38.1",
     "jest-image-snapshot": "^6.4.0",
     "typescript": "^5.4.5",
     "vitest": "^1.4.0"

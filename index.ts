@@ -85,7 +85,7 @@ const addOffsetToImages = (
   );
 };
 
-export default async (
+export const joinImages = async (
   images: string[],
   output: string,
   options?: JoinImageOptions,
@@ -114,15 +114,3 @@ export default async (
     .composite(imageOffsetData)
     .toFile(output);
 };
-
-// (async () => {
-//   await joinImages(
-//     [
-//       "test-images/vert1.png",
-//       "test-images/vert2.png",
-//       "test-images/vert3.png",
-//     ],
-//     "test-images/vert-out1.png",
-//       { direction: JoinImageDirection.Auto }
-//   );
-// })();
